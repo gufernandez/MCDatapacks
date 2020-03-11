@@ -1,0 +1,35 @@
+Setup on Load
+
+Book to allow each player to select their role and to start the game.
+(books with triggers)
+/give @p minecraft:written_book 1 0 {title:"",author:"",pages:["{\"text\":\"Click\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger UseTP set 1\"}}"]}
+https://www.reddit.com/r/Minecraft/comments/5eaect/help_how_to_make_a_clickable_text_in_a_book_with/
+
+Description of each role
+
+
+Start
+
+Clear all inventory.
+(clear @a)
+Give a compass to the Ninja that points to the location of the Hero.
+(give @p[team=ninja] minecraft:compass)
+
+Freeze Ninja position for 30 seconds.
+(use scoreboard as timer and keep teleporting player to the same position every tick)
+
+
+Match
+
+Every time the Hero looks at the Ninja, they should freeze in place.
+https://www.reddit.com/r/MinecraftCommands/comments/7zt8jp/shoot_arrow_in_direction_player_is_facing/
+https://www.reddit.com/r/MinecraftCommands/comments/cm99m9/summon_an_arrow_that_is_shot_where_the_player_is/
+
+If Ninja hits the Hero with melee than the Hero is killed and the Ninja wins the game.
+(scoreboard of Damage Dealt and one for Damage Taken)
+
+
+Compass
+
+Always point to the Hero location. Nether(?)
+(execute at @p[team=hero] run setworldspawn ~ ~ ~) (run on tick) -> maybe part of main function
